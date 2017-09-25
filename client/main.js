@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Title from "./../imports/ui/Title";
 import Input from "./../imports/ui/Input";
+import PlayersList from "./../imports/ui/PlayersList";
 import {Meteor} from "meteor/meteor";
 import {Tracker} from "meteor/tracker";
 import {Players} from "./../imports/api/players";
@@ -17,7 +18,7 @@ const renderPlayers = function(playerList){
 	</div>;
 	});
 }
-const handleSubmit = (e) => {
+const handleSubmit = (e) =>{
 	e.preventDefault();
 	let name = e.target.playerName.value;
 	if(name != ""){
@@ -28,12 +29,6 @@ const handleSubmit = (e) => {
 		e.target.playerName.value = "";
 	}
 }
-const handleDelete = (player) => {
-	Players.remove({_id: player._id});
-}
-const handleInc = (player,positif) => {
-	Players.update({_id: player._id}, {$inc:{score: positif == true ? 1 : -1 }});
-}
 Meteor.startup(function(){
 	Tracker.autorun(function(){
 		players = Players.find().fetch();
@@ -42,7 +37,7 @@ Meteor.startup(function(){
 		});
 		jsx = <div>
 			<Title> SCORES </Title>
-			{ renderPlayers(players)}
+			<PlayersList />
 			<Input button="add player" action={(e)=> handleSubmit(e)}>
 				<p><input type="text" name="playerName" /></p>
 			</Input>

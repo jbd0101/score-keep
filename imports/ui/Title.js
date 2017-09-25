@@ -7,7 +7,7 @@ export default class Title extends React.Component{
       <div>
         <h1>{this.props.children}</h1>
       </div>
-    );te
+    );
   }
 
 }
