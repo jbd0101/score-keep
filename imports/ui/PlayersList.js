@@ -26,7 +26,7 @@ export default class PlayersList extends React.Component{
   }
   render() {
     return (
-      <div>
+      <div className="container">
         {this.state.players.map((player)=>{
           return <PlayerItem key={player._id} player={player} />
         })}
@@ -46,11 +46,11 @@ class PlayerItem extends React.Component{
   render() {
     let player = this.props.player;
     return (
-      <div>
-        <p><b>{player.name} </b> score: {player.score}
-  		   <button onClick={this.handleInc}>+</button>
-  			<button onClick={this.handleDec}>-</button>
-  			 <button onClick={this.handleDelete}>X</button> </p>
+      <div className="item">
+        <p><b>{player.name} </b> has {player.score} point(s)</p>
+  		   <button className="btn" onClick={this.handleInc}>+</button>
+  			<button className="btn" onClick={this.handleDec}>-</button>
+  			 <button className="btn" onClick={this.handleDelete}>X</button>
       </div>
     )
   }
