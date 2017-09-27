@@ -3,12 +3,27 @@
   border: 1px solid #e8e8e8;
   margin-bottom: 1.3rem;
   padding: 1.3rem;
-
 }
-
 .button{
   color: #555555;
   cursor: pointer;
   font-weight: 600;
   margin-left: 1.3rem;
+  border: 1px solid #555555;
+  outline: none;
+  padding: 1.3rem;
+  background: white;
+  transition: background .2s ease,transform .2s ease;
+  &:hover, &:focus{
+    background: #e8e8e8;
+  }
+  &:active{
+    background: #cccccc;
+    transform: scale(1.1);
+  }
+}
+.button--round{
+border-radius: 50%;
+height: 4rem;
+width: 4rem;
 }

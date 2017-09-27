@@ -38,7 +38,7 @@ Meteor.startup(function(){
 		jsx = <div>
 			<Title> SCORES </Title>
 			<PlayersList />
-			
+
 			<Input button="add player" action={(e)=> handleSubmit(e)}>
 				<p><input type="text" name="playerName" /></p>
 			</Input>

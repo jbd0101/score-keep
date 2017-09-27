@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import {Tracker} from "meteor/tracker";
 import {Players} from "./../api/players";
 import {Meteor} from "meteor/meteor";
+import FlipMove from 'react-flip-move';
 
 export default class PlayersList extends React.Component{
   constructor(props){
@@ -27,9 +28,12 @@ export default class PlayersList extends React.Component{
   render() {
     return (
       <div className="container">
+        <FlipMove>
         {this.state.players.map((player)=>{
           return <PlayerItem key={player._id} player={player} />
         })}
+      </FlipMove>
+
       </div>
     );
   }
@@ -48,9 +52,9 @@ class PlayerItem extends React.Component{
     return (
       <div className="item">
         <p><b>{player.name} </b> has {player.score} point(s)</p>
-  		   <button className="btn" onClick={this.handleInc}>+</button>
-  			<button className="btn" onClick={this.handleDec}>-</button>
-  			 <button className="btn" onClick={this.handleDelete}>X</button>
+  		   <button className="button button--round" onClick={this.handleInc}>+</button>
+  			<button className="button button--round" onClick={this.handleDec}>-</button>
+  			 <button className="button button--round" onClick={this.handleDelete}>X</button>
       </div>
     )
   }
